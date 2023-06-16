@@ -1,102 +1,119 @@
 .storybook-ntableview-container {
-    display: flex;
-  }
-  .storybook-ntableview-table{
-    width: 100%;
-    min-height: 60vh;
-    border-collapse: collapse;
-    border-radius: 16px;
-    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1); 
-  }
-  thead tr{
-    border-radius: 16px;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-  }
-  .storybook-ntableview--secondary {
-    color: #333;
-    background-color: transparent;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-  }
+  display: flex;
+}
+.storybook-ntableview-table {
+  width: 100%;
+  min-height: 60vh;
+  border-collapse: collapse;
+  border-radius: 16px;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+thead tr {
+  border-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.storybook-ntableview--secondary {
+  color: #333;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
 
-  tr{
-    transform: scale(1);
-    position: relative;
-  }
+tr {
+  transform: scale(1);
+  position: relative;
+}
 
 tr:not(:last-child) {
-    border-bottom: 1px solid #e1e1e1;
-  }
-  th{
-    background-color: #F7F7F7;
-    border-bottom: 1px solid #e1e1e1;
-    padding: 16px;
-  }
-  td {
-    padding: 12px;
-    text-align: center;
-  }  
+  border-bottom: 1px solid #e1e1e1;
+}
+th {
+  text-align: start;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 16px;
+}
+td {
+  padding: 12px;
+  text-align: start;
+}
 
-  :checked::before {
-    /* add a background (webkit only)*/
-    content: ' ';
+.storybook-ntableview-table th.up {
+  background-image: url("../images/up_arrow.png");
+}
+.storybook-ntableview-table th.down {
+  background-image: url("../images/down_arrow.png");
+}
+.storybook-ntableview-table th.default {
+  background-image: url("../images/default.png");
+}
+th.up,
+th.default,
+th.down {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+:checked::before {
+  /* add a background (webkit only)*/
+  content: " ";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #efedfd;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table th {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
     position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: #EFEDFD;
-    opacity: .5;
-    z-index: -1;
+    width: 1px;
   }
-  
 
-  @media screen and (max-width: 600px) {
-    table {
-      border: 0;
-    }
-  
-    table caption {
-      font-size: 1.3em;
-    }
-    
-    table th {
-      border: none;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-    }
-    
-    table tr {
-      border-bottom: 3px solid #ddd;
-      display: block;
-      margin-bottom: .625em;
-    }
-    
-    table td {
-      border-bottom: 1px solid #ddd;
-      display: block;
-      font-size: .8em;
-      text-align: right;
-    }
-    
-    table td::before {
-      /*
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
       * aria-label has no advantage, it won't be read inside a table
       content: attr(aria-label);
       */
-      content: attr(data-label);
-      float: left;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    
-    table td:last-child {
-      border-bottom: 0;
-    }
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
   }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
