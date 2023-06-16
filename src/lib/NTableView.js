@@ -16,7 +16,6 @@ export const NTableView = ({
   const [order, setOrder] = useState("asc");
   const [tableData, handleSorting] = useTableSorted(props.data, props.columns);
 
-  
   const handleSortingChange = (accessor) => {
     const sortOrder =
       accessor === sortField && order === "asc" ? "desc" : "asc";

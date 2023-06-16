@@ -7,6 +7,8 @@ function App() {
     <div className="App">
       <NTableView
         caption="Sorting List"
+        listType="multi-select"
+        wrongProp="wrongValue"
         columns={[
           {
             accessor: "name",
